@@ -1,4 +1,4 @@
-# MailerSpring
+# Mailer Spring
 This is Spring port of the Mailer written in Object Pascal.
 
 The project consists of three modules: 

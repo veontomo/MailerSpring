@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/ActiveQueue/ActiveQueue.iml" filepath="$PROJECT_DIR$/ActiveQueue/ActiveQueue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Consumer/Consumer.iml" filepath="$PROJECT_DIR$/Consumer/Consumer.iml" />
       <module fileurl="file://$PROJECT_DIR$/MailerSpring.iml" filepath="$PROJECT_DIR$/MailerSpring.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/MailerSpring_main.iml" filepath="$PROJECT_DIR$/.idea/modules/MailerSpring_main.iml" group="MailerSpring" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/MailerSpring_test.iml" filepath="$PROJECT_DIR$/.idea/modules/MailerSpring_test.iml" group="MailerSpring" />
+      <module fileurl="file://$PROJECT_DIR$/Reception/Reception.iml" filepath="$PROJECT_DIR$/Reception/Reception.iml" />
     </modules>
   </component>
 </project>
