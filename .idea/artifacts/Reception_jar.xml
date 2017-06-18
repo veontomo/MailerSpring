@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Reception:jar">
+    <output-path>$PROJECT_DIR$/classes/artifacts/Reception_jar</output-path>
+    <root id="archive" name="Reception.jar" />
+  </artifact>
+</component>

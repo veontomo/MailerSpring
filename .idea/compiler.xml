@@ -4,6 +4,8 @@
     <bytecodeTargetLevel>
       <module name="MailerSpring_main" target="1.8" />
       <module name="MailerSpring_test" target="1.8" />
+      <module name="Reception_main" target="1.8" />
+      <module name="Reception_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
