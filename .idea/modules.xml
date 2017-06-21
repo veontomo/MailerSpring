@@ -6,7 +6,6 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/MailerSpring_main.iml" filepath="$PROJECT_DIR$/.idea/modules/MailerSpring_main.iml" group="MailerSpring" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/MailerSpring_test.iml" filepath="$PROJECT_DIR$/.idea/modules/MailerSpring_test.iml" group="MailerSpring" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Reception.iml" filepath="$PROJECT_DIR$/.idea/modules/Reception.iml" group="Reception" />
-      <module fileurl="file://F:\Users\Andrea\Documents\Repos\MailerSpring\Reception\Reception.iml" filepath="F:\Users\Andrea\Documents\Repos\MailerSpring\Reception\Reception.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Reception/Reception_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Reception/Reception_main.iml" group="Reception" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Reception/Reception_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Reception/Reception_test.iml" group="Reception" />
     </modules>
