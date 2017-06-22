@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Dispatcher.iml" filepath="$PROJECT_DIR$/.idea/modules/Dispatcher.iml" group="Dispatcher" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Dispatcher/Dispatcher_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Dispatcher/Dispatcher_main.iml" group="Dispatcher" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Dispatcher/Dispatcher_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Dispatcher/Dispatcher_test.iml" group="Dispatcher" />
       <module fileurl="file://$PROJECT_DIR$/MailerSpring.iml" filepath="$PROJECT_DIR$/MailerSpring.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/MailerSpring_main.iml" filepath="$PROJECT_DIR$/.idea/modules/MailerSpring_main.iml" group="MailerSpring" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/MailerSpring_test.iml" filepath="$PROJECT_DIR$/.idea/modules/MailerSpring_test.iml" group="MailerSpring" />
