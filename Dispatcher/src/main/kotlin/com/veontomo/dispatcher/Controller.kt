@@ -2,21 +2,23 @@ package com.veontomo.dispatcher
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.ui.Model
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.stereotype.Controller
+import org.springframework.web.bind.annotation.*
 
 /**
  * Dispatcher controller
  *
  */
-@Controller
+@RestController
 @EnableAutoConfiguration
-class Controller() {
+class Controller(val repository: CustomerRepository) {
 
     @RequestMapping("/main")
     fun mainpage(@RequestParam(value = "name", required = false, defaultValue = "User") name: String, model: Model): String {
         model.addAttribute("name", name)
         return "mainpage"
     }
+
+    @RequestMapping("/{name}")
+    fun findByLastName(@PathVariable name: String) = repository.findByLastName(name)
 }
