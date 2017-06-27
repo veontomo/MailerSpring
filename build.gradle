@@ -41,6 +41,7 @@ allprojects {
         compile('org.springframework.boot:spring-boot-starter-web')
         compile("org.springframework.boot:spring-boot-starter-data-jpa")
         compile("com.h2database:h2")
+        compile("mysql:mysql-connector-java:5.1.34")
         compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}")
         compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
         compileOnly('org.springframework.boot:spring-boot-configuration-processor')
