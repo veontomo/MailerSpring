@@ -1,9 +1,7 @@
 package com.veontomo.dispatcher
 
-import com.sun.corba.se.impl.activation.RepositoryImpl
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.ui.Model
-import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.multipart.MultipartFile
 
@@ -13,25 +11,27 @@ import org.springframework.web.multipart.MultipartFile
  */
 @RestController
 @EnableAutoConfiguration
-class Controller(val repository: CustomerRepository) {
+class Controller(val customerRepository: CustomerRepository, val requestRepository: RequestRepository) {
 
     init {
-        print("class Controller is initialized with argument of ${repository.javaClass.name} type")
+        print("class Controller is initialized with argument of ${customerRepository.javaClass.name} type")
     }
 
-    @RequestMapping("/main")
+    @RequestMapping(value = "/main", method = arrayOf(RequestMethod.POST))
     fun mainpage(@RequestParam(value = "name", required = false, defaultValue = "User") name: String, model: Model): String {
         model.addAttribute("name", name)
         return "mainpage"
     }
 
     @RequestMapping("/multi")
-    fun multi(@RequestParam("file") submissions: Array<MultipartFile>) : List<Long>{
-        return submissions.map { it.size }
+    fun multi(@RequestParam("file") submissions: Array<MultipartFile>): Int {
+        print("${submissions.size} elements are received")
+        submissions.map { it.size }.forEach { requestRepository.save(Request(it)) }
+        return submissions.sumBy { it.size.toInt() }
     }
 
     @RequestMapping("/{name}")
-    fun findByLastName(@PathVariable name: String) = repository.findByLastName(name)
+    fun findByLastName(@PathVariable name: String) = customerRepository.findByLastName(name)
 
 
 }
