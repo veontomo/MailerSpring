@@ -4,12 +4,14 @@ import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Primary
 
 @SpringBootApplication
 class DispatcherApplication {
     // The code below is taken from here:
     // https://spring.io/blog/2016/02/15/developing-spring-boot-applications-with-kotlin
     @Bean
+    @Primary
     open fun init(repository: CustomerRepository) = CommandLineRunner {
         println("Saving customers")
         repository.save(Customer("Jack", "Bauer"))

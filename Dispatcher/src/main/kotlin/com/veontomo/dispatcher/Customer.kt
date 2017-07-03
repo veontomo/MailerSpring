@@ -6,7 +6,7 @@ import javax.persistence.GenerationType
 import javax.persistence.Id
 
 @Entity
-class Customer(private val firstName: String, private val lastName: String) {
+class Customer(val firstName: String, val lastName: String) {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private var id: Long = 0
 
