@@ -17,15 +17,15 @@ class Controller(val customerRepository: CustomerRepository, val requestReposito
         print("class Controller is initialized with argument of ${customerRepository.javaClass.name} type")
     }
 
-    @RequestMapping(value = "/main", method = arrayOf(RequestMethod.POST))
+    @RequestMapping(value = "/main")
     fun mainpage(@RequestParam(value = "name", required = false, defaultValue = "User") name: String, model: Model): String {
         model.addAttribute("name", name)
         return "mainpage"
     }
 
-    @RequestMapping("/multi")
+    @RequestMapping("/multi", method = arrayOf(RequestMethod.POST))
     fun multi(@RequestParam("file") submissions: Array<MultipartFile>): Int {
-        print("${submissions.size} elements are received")
+        println("${submissions.size} elements are received")
         submissions.map { it.size }.forEach { requestRepository.save(Request(it)) }
         return submissions.sumBy { it.size.toInt() }
     }
