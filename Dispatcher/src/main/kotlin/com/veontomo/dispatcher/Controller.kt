@@ -1,5 +1,6 @@
 package com.veontomo.dispatcher
 
+import org.json.JSONObject
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.*
@@ -24,10 +25,11 @@ class Controller(val customerRepository: CustomerRepository, val requestReposito
     }
 
     @RequestMapping("/multi", method = arrayOf(RequestMethod.POST))
-    fun multi(@RequestParam("file") submissions: Array<MultipartFile>): String {
+    fun multi(@RequestParam("file") submissions: Array<MultipartFile>, @RequestParam("data") data: String): String {
         println("${submissions.size} elements are received")
         submissions.map { it.size }.forEach { requestRepository.save(Request(it)) }
-        return submissions.mapIndexed {i, file -> "file ${i+1} size: ${file.size}" }.joinToString(", ")
+
+        return "data = $data, " + submissions.mapIndexed { i, file -> "file ${i + 1} size: ${file.size}" }.joinToString(", ")
     }
 
     @RequestMapping("/{name}")
