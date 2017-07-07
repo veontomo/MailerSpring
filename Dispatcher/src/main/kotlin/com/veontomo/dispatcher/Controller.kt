@@ -27,7 +27,7 @@ class Controller(val customerRepository: CustomerRepository, val requestReposito
     fun multi(@RequestParam("file") submissions: Array<MultipartFile>): String {
         println("${submissions.size} elements are received")
         submissions.map { it.size }.forEach { requestRepository.save(Request(it)) }
-        return submissions.map { "item size ${it.size}" }.joinToString(", ")
+        return submissions.mapIndexed {i, file -> "file ${i+1} size: ${file.size}" }.joinToString(", ")
     }
 
     @RequestMapping("/{name}")
