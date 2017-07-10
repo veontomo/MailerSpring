@@ -14,7 +14,7 @@ import org.springframework.web.multipart.MultipartFile
  */
 @RestController
 @EnableAutoConfiguration
-class Controller(val customerRepository: CustomerRepository, val requestRepository: RequestRepository) {
+class Controller(val customerRepository: CustomerRepository, val requestRepository: RequestRepository ) {
 
     init {
         print("class Controller is initialized with argument of ${customerRepository.javaClass.name} type")
@@ -32,7 +32,7 @@ class Controller(val customerRepository: CustomerRepository, val requestReposito
     }
 
     @RequestMapping("/multi", method = arrayOf(RequestMethod.POST))
-    fun multi(@RequestParam("file") submissions: Array<MultipartFile>, @RequestBody data: Customer): String {
+    fun multi(@RequestParam("file") submissions: Array<MultipartFile>, @RequestParam("data") data: String): String {
         println("${submissions.size} elements are received")
         submissions.map { it.size }.forEach { requestRepository.save(Request(it)) }
 
