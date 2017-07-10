@@ -32,7 +32,7 @@ class Controller(val customerRepository: CustomerRepository, val requestReposito
     }
 
     @RequestMapping("/multi", method = arrayOf(RequestMethod.POST))
-    fun multi(@RequestParam("file") submissions: Array<MultipartFile>, @RequestParam("data") data: String): String {
+    fun multi(@RequestPart("file") submissions: Array<MultipartFile>, @RequestPart("data") data: Customer): String {
         println("${submissions.size} elements are received")
         submissions.map { it.size }.forEach { requestRepository.save(Request(it)) }
 
