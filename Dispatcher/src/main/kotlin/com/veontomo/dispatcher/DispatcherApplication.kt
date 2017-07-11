@@ -1,5 +1,7 @@
 package com.veontomo.dispatcher
 
+import org.apache.commons.cli.DefaultParser
+import org.apache.commons.cli.Options
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
@@ -25,6 +27,26 @@ class DispatcherApplication {
 }
 
 fun main(args: Array<String>) {
-    SpringApplication.run(DispatcherApplication::class.java, *args)
+    val CONFIG_FILE = "c"
+    println(args.joinToString())
+    val options = Options()
+    options.addOption(CONFIG_FILE, true, "configuration")
+    val parser = DefaultParser()
+    val cmd = parser.parse(options, args)
+    if (cmd.hasOption(CONFIG_FILE)) {
+//        val configFile = cmd.getOptionValue(CONFIG_FILE)
+//        val config = ServerConfig(configFile)
+        val app = SpringApplication(DispatcherApplication::class.java)
+        val prop = mapOf("server.port" to 8899)
+        app.setDefaultProperties(prop)
+        app.run()
+    } else {
+        println("No c option")
+    }
+
+
+}
+
+class ServerConfig(val configFile: String) {
 
 }
