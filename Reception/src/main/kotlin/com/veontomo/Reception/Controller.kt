@@ -1,5 +1,6 @@
 package com.veontomo.Reception
 
+import org.json.JSONObject
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.ui.Model
 import org.springframework.stereotype.Controller
@@ -22,7 +23,10 @@ class Controller() {
 
     @RequestMapping(value = "/{origin}/{action}", method = arrayOf(RequestMethod.POST))
     @ResponseBody
-    fun entry(@PathVariable("origin") origin: String, @PathVariable("action") action: String): String {
+    fun entry(@PathVariable("origin") origin: String,
+              @PathVariable("action") action: String,
+              @RequestPart("files") files: Array<MultipartFile>,
+              @RequestPart("data") data: String): String {
         return "$origin/$action"
     }
 }
