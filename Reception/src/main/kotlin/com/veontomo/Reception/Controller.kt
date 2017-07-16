@@ -27,7 +27,8 @@ class Controller() {
               @PathVariable("action") action: String,
               @RequestPart("files") files: Array<MultipartFile>,
               @RequestPart("data") data: String): String {
-        return "$origin/$action"
+        val resume = files.joinToString { "${it.name} (${it.size})" }
+        return "$origin/$action: $resume, $data"
     }
 }
 
