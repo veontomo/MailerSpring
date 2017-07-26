@@ -26,7 +26,7 @@ class Controller() {
     fun entry(@PathVariable("origin") origin: String,
               @PathVariable("action") action: String,
               @RequestPart("files") files: Array<MultipartFile>,
-              @RequestPart("data") data: String): String {
+              @RequestPart("data", required = false) data: String): String {
         val resume = files.joinToString { "${it.name} (${it.size})" }
         return "$origin/$action: $resume, $data"
     }

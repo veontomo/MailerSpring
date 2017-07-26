@@ -47,13 +47,14 @@ class ControllerTest() {
     }
     @Test
     fun getPlaceholders(){
-        val first = MockMultipartFile("data", "filename.txt", "text/plain", "some xml".byteInputStream(Charsets.US_ASCII));
-        val request = MockMvcRequestBuilders.multipart("/aaa/bbb")..file(first)
+        val first = MockMultipartFile("data", "filename.txt", "text/plain", "some data to send".byteInputStream(Charsets.US_ASCII));
+        val request = MockMvcRequestBuilders.multipart("/first-part-of-url/second-part-of-url").file(first)
 
         this.mockMvc.perform(request)
                 .andExpect(status().isOk)
-                .andExpect(content().string(containsString("aaa")))
-                .andExpect(content().string(containsString("bbb")))
+                .andExpect(content().string(containsString("first-part-of-url")))
+                .andExpect(content().string(containsString("second-part-of-url")))
+                .andExpect(content().string(containsString("some data to send")))
     }
 
 }
