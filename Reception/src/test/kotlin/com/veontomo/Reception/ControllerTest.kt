@@ -15,8 +15,12 @@ import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.mock.web.MockMultipartFile
 import org.springframework.test.context.junit4.SpringRunner
 import org.springframework.test.web.servlet.MockMvc
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
+import java.nio.charset.Charset
 
 @RunWith(SpringRunner::class)
 @SpringBootTest
@@ -36,18 +40,20 @@ class ControllerTest() {
     }
 
     @Test
-    fun mainpage() {
-    }
-
-    @Test
-    fun entry() {
-    }
-
-    @Test
     fun indexControllerShouldReturnHtmlPage() {
         this.mockMvc.perform(get("/main"))
-                .andExpect(status().isOk())
+                .andExpect(status().isOk)
                 .andExpect(content().string(containsString("Hello from Reception")));
+    }
+    @Test
+    fun getPlaceholders(){
+        val first = MockMultipartFile("data", "filename.txt", "text/plain", "some xml".byteInputStream(Charsets.US_ASCII));
+        val request = MockMvcRequestBuilders.multipart("/aaa/bbb")..file(first)
+
+        this.mockMvc.perform(request)
+                .andExpect(status().isOk)
+                .andExpect(content().string(containsString("aaa")))
+                .andExpect(content().string(containsString("bbb")))
     }
 
 }
